@@ -1,0 +1,12 @@
+<p>WELCOME TO OUR CIS192 PROJECT</p>
+    <p>Please find our apps below.</p>
+
+{% if app_list %}
+    <ul>
+    {% for app in app_list %}
+        <li><a href="Project/{{ app }}/">{{ app }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No apps are available.</p>
+{% endif %}

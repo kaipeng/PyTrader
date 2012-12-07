@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h2>Register for PyTrader!</h2>
+ 
+    <p>*Note valid Google account is needed.</p>
+    <p>*Email is also used for activating accounts and resetting lost passwords,
+    so please enter a valid email!</p>
+    <form action="" method="POST">{% csrf_token %}
+
+        <div>
+            {{ form.email.errors }}
+            <label for="id_email">Google Account E-Mail: </label>
+            {{ form.email }}
+        </div>
+        <div>
+            {{ form.google_password.errors }}
+            <label for="id_google_password">Google Account Password: </label>
+            {{ form.google_password }}
+        </div>
+
+        <div>
+            {{ form.trading_experience.errors }}
+            <label for="id_trading_experience">Trading Experience: </label>
+            {{ form.trading_experience }}
+
+        </div>
+        <div>
+            {{ form.trading_style.errors }}
+            <label for="id_trading_style">Trading Style: </label>
+            {{ form.trading_style }}
+        </div>
+
+        <div>
+            {{ form.avatar_url.errors }}
+            <label for="id_avatar_url">Avatar URL (Defaults to Google Icon if Blank): </label>
+            {{ form.avatar_url }}
+        </div>
+        <div>
+            {{ form.username.errors }}
+            <label for="id_username">PyTrader Username: </label>
+            {{ form.username }}
+        </div>
+        <div>
+            {{ form.password1.errors }}
+            <label for="id_password1">PyTrader Password: </label>
+            {{ form.password1 }}
+        </div>
+        <div>
+            {{ form.password2.errors }}
+            <label for="id_password2">Repeat Password: </label>
+            {{ form.password2 }}
+        </div>
+
+
+        <input type="submit" value="Register" />
+    </form>
+    
+    <p>READ: Once you register, please check your email for an activation message.
+    Follow the link to activate your account.</p>
+    <p>You will not be able to log on until you confirm your email and activate your account.</p>
+{% endblock %}

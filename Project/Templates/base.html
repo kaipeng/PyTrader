@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <link href="./bitnami.css" media="screen" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+body {
+	background-repeat: no-repeat;
+	}
+</style>
+    </head>
+    <body background="/img/plain-background.png">
+    <title>PyTrader: CIS192</title>
+    
+	<h1><a href="/Project/">
+        <img border="0" src="http://ec2-23-20-199-2.compute-1.amazonaws.com/PyTrader_logo.png" alt="PyTrader_Logo" width="80" height="60" /></a>
+        Welcome To PyTrader :: CIS192 Project</h1>
+    {% if user.is_authenticated %}
+    <p><img border="0" src="{{ user.traderprofile.avatar_url }}" alt="PyTrader_Logo" width="60" height="60" />
+    Hello, {{ user.username }}!
+    | <a href="/Project/">Home</a></p>
+    <p><a href="/Project/trader/positions">View Positions</a> 
+    | <a href="/Project/trader/transactions">View Transactions</a>
+    | <a href="/Project/trader/orders">Place Order</a></p>
+	<HR COLOR="#000066" SIZE="4">
+	{% else %}
+	{% endif %}
+       
+       
+             <div class="clear"></div>
+        <table class="virtual-appliances-logo-block center" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td>
+              <div class="bitnami-ami-landing-info-quad-top-yellow-spaced"></div>
+              <div class="bitnami-ami-landing-info-quad-middle-yellow-spaced">
+                
+                
+                
+                
+        {% block content %}
+            <h2>Home Page</h2>
+            Start trading here!        
+            <p><a href="/Project/trader/positions">Trading Floor</a></p>
+            
+            
+            <h2>Admin Page</h2>
+            If you have administrative access, you can view and modify the database here!
+            <p><a href="/Project/admin">Admin</a></p>
+            
+            
+            <h2>Additional Bells and Whistles</h2>
+            If you have administrative access, you can view and modify the database here!            
+            <p><a href="/Project/polls">Poll Demo</a></p>
+            <p><a href="/Project/example/search_form">Ajax Autocomplete and Select Forms</a></p>
+
+            <!--
+            <p>Authentication</p>
+            <p><a href="/Project/accounts/register/">Register</a></p>
+            <p><a href="/Project/accounts/login/">Login</a></p>
+            -->
+        {% endblock %}
+        
+        
+        
+              <div class="clear"></div>
+                           
+              </div>
+              <div class="bitnami-ami-landing-info-quad-bottom-yellow-spaced"></div>
+              
+            </td>
+          </tr>
+        </table>
+       
+        <br>
+        <br>
+        <br>
+        <br>
+
+        {% if user.is_authenticated %}
+		<p><a href="/Project/accounts/logout/?next=/Project/accounts/logout_success">Logout</a></p>		
+		{% else %}
+    	<p></p>
+		{% endif %}
+               	<HR COLOR="#000066" SIZE="4">
+
+        <p>Kai Peng and Colin Schloss 2012 | CIS192 Final Project</p>
+    </body>
+</html>

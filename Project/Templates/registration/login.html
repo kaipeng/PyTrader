@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    {% if form.errors %}
+        <p class="error">Error logging in:</p>
+    {% endif %}
+ 
+    <form action="{% url login %}?next=/Project/accounts/success" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Login" />
+    </form>
+    
+    Don't have an account yet?
+    <a href="/Project/accounts/register/">Register Here</a>
+    
+	<br><br><br><br>
+	Forgot your password?
+    <a href="/Project/accounts/password_reset/">Reset Password</a>
+{% endblock %}

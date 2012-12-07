@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+<h2>{{ name }} </h2>
+    <form action="" method="POST">{% csrf_token %}
+
+        
+    <div>
+            
+		{{ form.type.errors }}
+            
+		<label for="id_type">Type: </label>
+            
+		{{ form.type }}
+        
+    </div>
+        
+    <div>
+            
+		{{ form.ticker.errors }}
+            
+		<label for="id_ticker">Stock Symbol: </label>
+            
+		{{ form.ticker }}
+        
+    </div>
+		
+    <div>
+		{{ form.quantity.errors }}
+		<label for="id_quantity">Quantity: </label>
+		{{ form.quantity }}
+	</div>
+	<div>
+	   {{ form.price.errors }}
+		<label for="id_price">Price: </label>
+		{{ form.price }}
+	</div>
+		
+		
+        <input type="submit" value="Place Order" />
+    </form>
+{% endblock %}
